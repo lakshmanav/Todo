@@ -5,10 +5,13 @@
         update: function (element, valueAccessor) {
             var value = ko.unwrap(valueAccessor());
             if (value == true) {
-                $(element).wrap("<s></s>");
+                $(element).wrap("<strike></strike>");
             }
             else {
-                $(element).unwrap();
+			   if($(element).parent().is('strike'))
+			   {
+					$(element).unwrap();
+			   }
             }
         }
     };

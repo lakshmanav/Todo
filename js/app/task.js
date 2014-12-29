@@ -1,9 +1,9 @@
 ﻿(function (todo) {
 
-    todo.Task = function(description) {
+    todo.Task = function(description, isCompleted) {
         var self = this;
         self.description = ko.observable(description);
-        self.isCompleted = ko.observable(false);
+        self.isCompleted = ko.observable(isCompleted);
         self.inFocus = ko.observable(false);
 
         self.toggleFocus = function() {

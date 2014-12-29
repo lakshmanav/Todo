@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="header">
+    <h3 class="text-muted text-center"><span data-bind="text: dateTimeNow"></span></h3>
+</div>
+<form>
+    <div class="jumbotron">
+        <div class="form-group ">
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="todoItem" placeholder="What do you want to do ?" data-bind="value: taskDescription, valueUpdate: 'afterkeydown', enter: addTask, reset: true, focus: true" autofocus />
+            </div>
+        </div>
+    </div>
+    <div class="row marketing">
+        <table class="table table-striped">
+            <tbody data-bind="foreach: tasks">
+                <tr data-bind="event: { mouseover: toggleFocus, mouseout: toggleFocus }">
+                    <td>
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="checked: isCompleted"/>
+                                        <span data-bind="strike: isCompleted, text: description"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-danger btn-xs" data-bind="click: $parent.removeTask, visible: inFocus"><i class="glyphicon glyphicon-remove"></i>&nbsp;</button>
+                            </div>
+                        </div>
+                                
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

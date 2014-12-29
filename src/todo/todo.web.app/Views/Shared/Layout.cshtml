@@ -1,0 +1,26 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/styles")
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+        <footer class="footer">
+            <p>&copy; mychecklist : an app to track your to do list</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/scripts")
+    @RenderSection("scripts", required: false)
+     <script type="text/javascript">
+         $(function () {
+             var app = new todo.App();
+             app.run();
+         });
+        </script>    
+</body>
+</html>

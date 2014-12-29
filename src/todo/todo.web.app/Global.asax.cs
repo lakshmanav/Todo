@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
+using todo.web.app.App_Start;
+using WebGrease.Configuration;
 
 namespace todo.web.app
 {
@@ -13,6 +16,7 @@ namespace todo.web.app
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.ConfigureBundle(BundleTable.Bundles);
         }
     }
 }
